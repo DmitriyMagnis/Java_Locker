@@ -5,7 +5,8 @@ public class AppController {
 
         int[] numbers = new DataRepository().getData();
 
-        Thread thread_1 = new Thread(createTask(numbers), "Thread-1");
+        Runnable task = createTask(numbers);
+        Thread thread_1 = new Thread(task, "Thread-1");
 
         thread_1.start();
     }
